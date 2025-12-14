@@ -1,16 +1,20 @@
 # app/cache.py
-from typing import Any, Dict, Optional
+from typing import Any, Optional
+
+# Simple in-memory cache for development (no Redis required)
+_cache: dict[str, dict[str, Any]] = {}
 
 
-# Internal cache store
-_page_cache: Dict[str, Dict[str, Any]] = {}
+async def get_cached_page(page_id: str) -> Optional[dict[str, Any]]:
+    """
+    Get cached data for a page_id.
+    Returns the stored dict or None if not present.
+    """
+    return _cache.get(page_id)
 
 
-async def fetch_page_from_cache(page_id: str) -> Optional[Dict[str, Any]]:
-    
-    return _page_cache.get(page_id)
-
-
-async def save_page_to_cache(page_id: str, page_data: Dict[str, Any]) -> None:
-    
-    _page_cache[page_id] = page_data
+async def set_cached_page(page_id: str, value: dict[str, Any]):
+    """
+    Store page data for a page_id in the in-memory cache.
+    """
+    _cache[page_id] = value
