@@ -6,11 +6,11 @@ Here is a concise README you can put in `README.md` at the project root and adju
 
 # LinkedIn Insights Microservice
 
-A FastAPI‑based microservice that collects and serves insights for LinkedIn company pages. The service scrapes page data (dummy scraper now, real scraper later), stores it in a relational database, and exposes REST endpoints to query pages, posts, and followers.[2][3]
+A FastAPI‑based microservice that collects and serves insights for LinkedIn company pages. The service scrapes page data (dummy scraper now, real scraper later), stores it in a relational database, and exposes REST endpoints to query pages, posts, and followers.
 
 ## Features
 
-- Async REST API built with FastAPI and async SQLAlchemy[2][4]
+- Async REST API built with FastAPI and async SQLAlchemy
 - SQLite database (easily switchable to Postgres)  
 - Entities: Page, Post, SocialMediaUser, PageFollower, Employment, Comment  
 - Dummy scraper that generates sample data for a given LinkedIn page slug (e.g. `deepsolv`)  
@@ -83,7 +83,7 @@ pip install -r requirements.txt
 DATABASE_URL=sqlite+aiosqlite:///./linkedin.db
 ```
 
-The app will create `linkedin.db` and all tables automatically on startup using SQLAlchemy’s `create_all`.[22]
+The app will create `linkedin.db` and all tables automatically on startup using SQLAlchemy’s `create_all`.
 
 ***
 
@@ -182,8 +182,8 @@ Returns basic information about followers (dummy data from the scraper).
 ## Development notes
 
 - The current `scraper.py` generates mock data for testing.  
-  Replace it with a real scraper using Playwright or an API when ready, taking care to respect LinkedIn’s terms and legal constraints.[24]
-- `cache.py` currently uses a simple in‑memory dict. This can be swapped for a Redis‑based implementation by changing `get_cached_page` and `set_cached_page` and running a Redis server.[26]
+  Replace it with a real scraper using Playwright or an API when ready, taking care to respect LinkedIn’s terms and legal constraints.
+- `cache.py` currently uses a simple in‑memory dict. This can be swapped for a Redis‑based implementation by changing `get_cached_page` and `set_cached_page` and running a Redis server.
 - Switching to PostgreSQL only requires changing `DATABASE_URL` in `.env` and ensuring the database exists.
 
 ***
