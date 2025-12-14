@@ -213,4 +213,4 @@ Save the exported JSON as `postman_collection.json` in the repo for easier revie
 ![Followers endpoint](images/followers.png)
 
 ### Overall UI
-![End UI](images/end ui.png)
+![End UI](images/end_ui.png)
