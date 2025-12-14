@@ -214,3 +214,35 @@ Save the exported JSON as `postman_collection.json` in the repo for easier revie
 
 ### Overall UI
 ![End UI](images/end_ui.png)
+
+
+## Scraper implementation and real LinkedIn data
+
+This project is architected to support scraping real data from LinkedIn company pages, but the **public version does not fetch live data from LinkedIn**.
+
+### Why real scraping is not included
+
+- LinkedIn actively protects its platform against automated scraping and has strict terms of service around automated access.  
+- Publishing fully working code that logs in with credentials and scrapes real company data could violate those terms and raise legal or ethical issues.  
+- Because this repository is public, the scraper is intentionally implemented as a **stub** that generates mock data in the same shape as real data (page details, posts, followers/employees).
+
+### How this fits the architecture
+
+- The core function `scrape_linkedin_page(page_id)` returns a dictionary with:
+
+  - `page`: page metadata (name, url, industry, follower_count, etc.).  
+  - `posts`: a list of post objects.  
+  - `followers`: a list of user objects.
+
+- All other parts of the system (database models, CRUD layer, APIs, filters, pagination) work against this structure.  
+- In a real/private environment, this stub can be replaced with a Playwright‑ or HTTP‑based scraper that:
+  - Reads LinkedIn credentials from environment variables (for example, from `.env`).  
+  - Logs into LinkedIn in a headless browser.  
+  - Navigates to `https://www.linkedin.com/company/{page_id}` and related tabs.  
+  - Extracts the same fields and returns them in the same structure.
+
+### What is demonstrated in this repo
+
+- Complete backend design: async API, relational schema, relationships, filters, pagination, and caching.  
+- A clear extension point for plugging in a real scraper privately, without publishing code that could misuse another service.
+
