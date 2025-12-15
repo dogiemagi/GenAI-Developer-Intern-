@@ -200,7 +200,7 @@ The rest of the codebase (DB models, APIs, CRUD, and pagination) will work uncha
 
 The **LinkedIn Insights Microservice** demonstrates how to design and build a scalable backend service that aggregates and serves company insights using modern Python tools — while maintaining clean separation of layers, compliance, and extendability.
 
----
-```
+
+
 
 
