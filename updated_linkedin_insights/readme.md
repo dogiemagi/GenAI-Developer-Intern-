@@ -1,9 +1,4 @@
 
-
-
-***
-
-```
 # LinkedIn Insights Microservice
 
 A **FastAPI-based backend microservice** that collects and serves insights for LinkedIn company pages.  
@@ -207,4 +202,5 @@ The **LinkedIn Insights Microservice** demonstrates how to design and build a sc
 
 ---
 ```
+
 
